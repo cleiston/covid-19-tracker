@@ -1,45 +1,30 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles({
-  root: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
+import CountUp from 'react-countup';
+import './styles.css';
 
 export default function SimpleCard(countryInfo) {
-  const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
-  console.log(countryInfo)
+
   const {confirmed, recovered, deaths, lastUpdate} = countryInfo.countryInfo;
   return (
-    <>
-    <Card className={classes.root}>
+    <div className="card-container">
+    <Card className="root confirmed">
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className="title" color="textSecondary" gutterBottom>
           Confirmed
         </Typography>
         <Typography variant="h5" component="h2">
-          {confirmed}
+        <CountUp
+          start={0}
+          end={ confirmed ? confirmed: 0}
+          duration={2.75}
+          separator=" "
+        />
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          {lastUpdate}
+        <Typography className="pos" color="textSecondary">
+          {new Date(lastUpdate).toDateString()}
         </Typography>
         <Typography variant="body2" component="p">
             Number of confirmed cases of COVID-19
@@ -47,16 +32,21 @@ export default function SimpleCard(countryInfo) {
       </CardContent>
     </Card>
 
-    <Card className={classes.root}>
+    <Card className="root recovered">
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className="title" color="textSecondary" gutterBottom>
           Recovered
         </Typography>
         <Typography variant="h5" component="h2">
-          {recovered}
+        <CountUp
+          start={0}
+          end={ recovered ? recovered: 0}
+          duration={2.75}
+          separator=" "
+        />
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          {lastUpdate}
+        <Typography className="pos" color="textSecondary">
+          {new Date(lastUpdate).toDateString()}
         </Typography>
         <Typography variant="body2" component="p">
             Number of recovered cases of COVID-19
@@ -64,22 +54,27 @@ export default function SimpleCard(countryInfo) {
       </CardContent>
     </Card>
 
-    <Card className={classes.root}>
+    <Card className="root deaths">
     <CardContent>
-      <Typography className={classes.title} color="textSecondary" gutterBottom>
+      <Typography className="title" color="textSecondary" gutterBottom>
         Deaths
       </Typography>
       <Typography variant="h5" component="h2">
-        {deaths}
+        <CountUp
+          start={0}
+          end={ deaths ? deaths: 0}
+          duration={2.75}
+          separator=" "
+        />
       </Typography>
-      <Typography className={classes.pos} color="textSecondary">
-        {lastUpdate}
+      <Typography className="pos" color="textSecondary">
+        {new Date(lastUpdate).toDateString()}
       </Typography>
       <Typography variant="body2" component="p">
           Number of deaths of COVID-19
       </Typography>
     </CardContent>
     </Card>
-    </>
+    </div>
   );
 }
