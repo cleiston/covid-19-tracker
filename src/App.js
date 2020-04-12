@@ -8,6 +8,12 @@ import SimpleCard from './components/SimpleCard';
 import Header from './components/Header';
 import './App.css';
 
+/**
+ * Developed by Cleiston Rodrigues
+ * Email: cleistonrs@gmail.com
+ * Github: github.com/cleiston
+ */
+
 function App() {
 
   const [countryList, setCountryList] = useState([]);
