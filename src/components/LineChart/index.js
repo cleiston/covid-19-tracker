@@ -1,5 +1,6 @@
 import React from 'react';
 import {Line} from 'react-chartjs-2';
+import './styles.css';
 
 export default function LineChart ({dailyData}){
     const data = {
@@ -52,7 +53,7 @@ export default function LineChart ({dailyData}){
     };
 
     return (
-        <div>
+        <div className="container-linechart">
             <Line data={data} />
         </div>
     );
