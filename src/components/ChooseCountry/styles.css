@@ -1,7 +1,20 @@
-select {
+.select {
     padding: 0.5em;
-    background: rgba(230, 230, 230, .7);
     border: 0;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px 1px #ccc;
+    min-width: 40vw;
+    background-color: transparent;
+    border-bottom: 1px solid #ccc;
+    transition: ease-in-out .4s;
+    margin-top: 50px;
+}
+
+.select:hover{
+    box-shadow: 1px 1px 4px 1px #979494;
+    transition: ease-in-out .4s;
+}
+
+.container-select-country {
+    display: flex;
+    justify-content: center;
 }

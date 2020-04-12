@@ -10,12 +10,11 @@ const data = {
     labels: ['Confirmed', 'Recovered', 'Deaths'],
     datasets: [
       {
-        label: country,
-        backgroundColor: 'rgba(0,120,132,0.2)',
-        borderColor: 'rgba(0,120,132,1)',
+        backgroundColor: ['rgba(100, 100, 255, 0.4)', 'rgba(100, 255, 100, 0.4)', 'rgba(255, 100, 100, 0.4)'],
+        borderColor: 'rgba(120,120,120,1)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(0,120,132,0.4)',
-        hoverBorderColor: 'rgba(0,120,132,1)',
+        hoverBackgroundColor: 'rgba(120,120,120,0.4)',
+        hoverBorderColor: 'rgba(120,120,120,1)',
         data: [confirmed, recovered, deaths]
       }
     ]
@@ -28,7 +27,9 @@ const data = {
         width={100}
         height={80}
         options={{
-            maintainAspectRatio: false
+          maintainAspectRatio: false,
+          legend: { display: false },
+          title: { display: true, text: `Current numbers in ${country}` }
         }}
         />
     </div>

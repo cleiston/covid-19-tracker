@@ -5,9 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
 import './styles.css';
 
-export default function SimpleCard(countryInfo) {
+export default function SimpleCard({countryInfo, country}) {
 
-  const {confirmed, recovered, deaths, lastUpdate} = countryInfo.countryInfo;
+  let countryName = country === '' ? 'Globally' : `in ${country}`;
+  const {confirmed, recovered, deaths, lastUpdate} = countryInfo;
   return (
     <div className="card-container">
     <Card className="root confirmed">
@@ -27,7 +28,7 @@ export default function SimpleCard(countryInfo) {
           {new Date(lastUpdate).toDateString()}
         </Typography>
         <Typography variant="body2" component="p">
-            Number of confirmed cases of COVID-19
+            Number of COVID-19 confirmed cases {countryName}
         </Typography>
       </CardContent>
     </Card>
@@ -49,7 +50,7 @@ export default function SimpleCard(countryInfo) {
           {new Date(lastUpdate).toDateString()}
         </Typography>
         <Typography variant="body2" component="p">
-            Number of recovered cases of COVID-19
+          Number of COVID-19 recovered cases {countryName}
         </Typography>
       </CardContent>
     </Card>
@@ -71,7 +72,7 @@ export default function SimpleCard(countryInfo) {
         {new Date(lastUpdate).toDateString()}
       </Typography>
       <Typography variant="body2" component="p">
-          Number of deaths of COVID-19
+        Number of COVID-19 death cases {countryName}
       </Typography>
     </CardContent>
     </Card>

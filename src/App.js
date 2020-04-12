@@ -5,6 +5,8 @@ import ChooseCountry from './components/ChooseCountry';
 import BarChart from './components/BarChart';
 import LineChart from './components/LineChart';
 import SimpleCard from './components/SimpleCard';
+import Header from './components/Header';
+import './App.css';
 
 function App() {
 
@@ -44,16 +46,13 @@ function App() {
   const handleCountryChange = (country) => {
     setCountry(country);
   };
-  
-  console.log(countryInfo)
-
-  const displayChart = country === "" ? <LineChart dailyData={dailyData} /> : <BarChart country={country} countryInfo={countryInfo} />;
 
   return (
     <>    
+      <Header />
+      <SimpleCard countryInfo={countryInfo} country={country} />
       <ChooseCountry countryList={countryList} handleCountryChange={handleCountryChange} />
-      <SimpleCard countryInfo={countryInfo} />
-      {displayChart}
+      {country === "" ? <LineChart dailyData={dailyData} /> : <BarChart country={country} countryInfo={countryInfo} />}
     </>
   );
 }

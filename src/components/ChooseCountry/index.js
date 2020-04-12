@@ -4,8 +4,8 @@ import './styles.css';
 export default function ChooseCountry({countryList, handleCountryChange}) {
 
     return (
-        <form>
-            <select defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
+        <form className="container-select-country">
+            <select className="select" defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
                 <option value="">Global</option>
                 {countryList.map((country, i) => 
                     (<option 
@@ -17,4 +17,5 @@ export default function ChooseCountry({countryList, handleCountryChange}) {
         </form>
     );
 
+    
 }
