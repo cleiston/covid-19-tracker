@@ -28,7 +28,7 @@ function App() {
         }
     
         getInfo();
-      }, [country])
+      }, [country]);
 
     useEffect(() => {
         const getData = async () => {
@@ -37,7 +37,7 @@ function App() {
         };
 
         getData();
-    }, [])
+    }, []);
 
   useEffect(() => {
 

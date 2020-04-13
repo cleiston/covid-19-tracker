@@ -1,3 +1,9 @@
 .container-linechart {
     margin: 5% 20%;
+    transition: ease-in-out .3s;
+}
+
+.container-linechart:hover {
+    box-shadow: 1px 1px 3px 2px #979494;
+    transition: ease-in-out .3s;
 }
